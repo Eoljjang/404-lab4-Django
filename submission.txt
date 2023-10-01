@@ -1,0 +1,26 @@
+Q1:
+
+Q2: Browser shows me a page that says "install worked successfully, congratulations!" We see this page because we have not yet configured any URL's.
+
+Q3: It shows you a page with the text "Hello, world. You're at the polls index." Both when navigating to "/" and "/polls". The former works because it redirects you to "/polls" automatically.
+
+Q4: A django migration is essentially "moving" any changes you make to your models into your database schema. For example, we made a class "Question" that has 2 fields: question_text and pub_date. When we migrate, the database now has a table called "Question" with the 2 fields.
+
+Q5: After I log in, I see the models (tables) that I've created. Here, you can add cells into the tables. To get custom models to appear in the Django admin page -> First you follow the previous question steps. Then go to ./<app>/admin.py, import those models, and register them by doing admin.site.register(model)
+
+Q6:
+
+1) /polls/38/ -> I see a screen that says "You're looking at question 38"
+
+2) /polls/38/results -> "You're looking a the results of question 38"
+
+3) /polls/38/vote -> "You're voting on question 38"
+
+4) If a string is used instead of a number, you'll get page not found. Which make sense.
+
+5) It currently says <path('<int:question_id')> I would assume you can change or ADD something like <string:question_string> to allow the request to accept strings instead of just integers.
+
+Q7: It's a bad idea to hardcode urls into templates because you have to always know the exact path, and if you ever need to change it it requires a lot of searching & makes it harder to debug / modularity. It's like using a variable instead of hardcoding a value.
+
+Q8: It allows for easily re-usability without having to code another view. For example, if I have 2 pages that have very similar view patterns (like renders forms, list, etc.) I can render a generic (class) view instead of writing 2 separate views for the pages. Generic views are also great for representing any database model data. You shouldn't use a generic view if your page requires more specific data, works with non-database data, or has more complex tasks that a generic view cannot handle.
+

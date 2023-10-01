@@ -1,0 +1,11 @@
+{% if latest_question_list %} <!-- Can check anything inside of views.py -->
+    <ul>
+    {% for question in latest_question_list %} <!-- You're basically embedding some logic code into HTML -->
+        <!-- Here we use the url '...' template tag so that we give the url a name rather than hardcoding it.-->
+        <!-- So in this case: We move to "polls" app, then grab the "detail" url inside of it. (This is all found in urls.py)-->
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
